@@ -2,20 +2,21 @@ package Application;
 
 import java.util.Date;
 
+import model.Dao.DaoFactory;
+import model.Dao.SellerDao;
+import model.Dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
+	
+		SellerDao seller = DaoFactory.createSellerDao();
 		
-		Department dep = new Department(1 , "Books");
+		Seller sel = seller.FindById(3);
 		
-		System.out.println(dep);
-		
-		Seller sell = new Seller(21 , "Drake" , "Drake@gmail.com" , new Date() , 2500.0 , dep);
-		
-		System.out.println(sell);
+		System.out.println(sel);
 
 	}
 
