@@ -39,11 +39,20 @@ public class Program {
 		}
 		
 		
-System.out.println("\n === TEST 4: seller Insert ===");
+			System.out.println("\n === TEST 4: seller Insert ===");
 
 			Seller nseller = new Seller(null , "Greg " , "greg@gmail.com " , new Date() , 4000.0 , department);
 			sellerDao.insert(nseller);
 			System.out.println("Inserted! new Id = " + nseller.getId());
+			
+			
+			System.out.println("\n === TEST 5: seller Update ===");
+			
+			nseller = sellerDao.FindById(1);
+			nseller.setName("Marcos Braz ");
+			sellerDao.update(nseller);
+			
+			System.out.println("Update completes !!");
 			
 		
 		
