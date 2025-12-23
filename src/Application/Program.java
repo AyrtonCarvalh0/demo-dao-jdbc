@@ -13,11 +13,11 @@ public class Program {
 
 	public static void main(String[] args) {
 	
-		SellerDao seller = DaoFactory.createSellerDao();
+		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
 		System.out.println("=== TEST 1: seller findById ===");
 		
-		Seller sel = seller.FindById(3);
+		Seller sel = sellerDao.FindById(3);
 		
 		System.out.println(sel);
 		
@@ -25,7 +25,7 @@ public class Program {
 		
 		Department department = new Department(2,null);
 		
-		List<Seller> list = seller.FindByDepartment(department);
+		List<Seller> list = sellerDao.FindByDepartment(department);
 		
 		for (Seller obj : list) {
 			System.out.println(obj);
@@ -33,10 +33,18 @@ public class Program {
 
 		System.out.println("\n === TEST 3: seller findAll ===");
 		
-		list = seller.FindAll();
+		list = sellerDao.FindAll();
 		for (Seller obj : list) {
 			System.out.println(obj);
 		}
+		
+		
+System.out.println("\n === TEST 4: seller Insert ===");
+
+			Seller nseller = new Seller(null , "Greg " , "greg@gmail.com " , new Date() , 4000.0 , department);
+			sellerDao.insert(nseller);
+			System.out.println("Inserted! new Id = " + nseller.getId());
+			
 		
 		
 		
